@@ -1,0 +1,16 @@
+<div class="contents-row">
+  <ul class='item-lists'>
+      <% @pictures.each do |pic| %>
+        <li class='list'>
+          <div class="item-pic">
+            <%= image_tag pic , class: "item-img"%>
+          </div>
+          <div class="item-date">
+            <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br>
+            <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br>
+            <%# <%= time.hour,"時",time.min,"分",time.sec,"秒\n" > %>
+          </div>
+        </li>
+      <% end %>
+  </ul>
+</div> 
