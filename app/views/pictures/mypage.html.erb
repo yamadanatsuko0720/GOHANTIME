@@ -28,13 +28,14 @@
     <br><br> 
     <% pic1 = 0 %>
     <% @pictures.each do |pic| %>
+      <% pic1 = pic1 + 1 %>
       <div class='picture'>
         <div class="item-pic">
           <%= image_tag pic , class: "item-img"%>
         </div>
         <div class="item-date">
-          <% if hour1 == @pictures.length - 1%>
-            <%= "NEW!" %>
+          <% if pic1 == @pictures.length - 1%>
+            <%= "NEW!" %><br> 
           <% end %>
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br> 
