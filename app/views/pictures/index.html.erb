@@ -4,15 +4,55 @@
     <div class='title-contents'>
       <%= image_tag "header.png", class:"header-pict"%>
         <div class="top">
-          <div class="not-login">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-          </div>
+          <%= link_to "ログイン", new_user_session_path, class: "post" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
         </div>
     </div>
     <%## 背景画像に載せる %>
   </header>
+
+  <div class="concept">
+    <p class="title">CONCEPT</p>
+    <p class="text">猫ちゃんのご飯タイムをお知らせします。<br><br>
+    お留守番中…ちゃんとご飯を食べてるかな？<br>
+    いつもより元気が無いような…最後にご飯を食べたのいつかな？<br><br>
+    そんな不安を解消します。
+    </p>
+    <div class="primary">
+      <div class="secondary">
+        <p class="secondary-top">LINE</p>
+        <p class="secondary-text">
+        猫ちゃんがご飯を食べ始めると<br>
+        写真を撮影してリアルタイムで<br>
+        LINEに通知が届きます。
+        </p>
+      </div>
+      <%= image_tag "line-sample.png", class:"sample"%>
+    </div>
+    <br>
+    <div class="primary">
+      <div class="secondary">
+        <p class="secondary-top">MYPAGE</p>
+        <p class="secondary-text">
+        ご飯タイムの記録を<br>
+        マイページで確認できます。
+        </p>
+      </div>
+      <%= image_tag "line-sample.png", class:"sample"%>
+    </div>
+    <p class="end-text">
+    猫ちゃんの"いつも"のご飯の間隔を知ることで<br>
+    体調不良に気がつく事ができます。<br>
+    さっそく猫ちゃんのご飯タイムを記録してみましょう。
+    </p>
+    <div class="end-btn">
+      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
   <footer>
     <p>Copyright GOHAN TIME 2020.</p>
   </footer>
-  </div>
+</div>
