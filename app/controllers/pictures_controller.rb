@@ -2,14 +2,17 @@ class PicturesController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
+    require 'exifr/jpeg'
+    @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort.reverse
+
+    if user_signed_in?
+      render :mypage
+    end
   end
 
   def mypage
     require 'exifr/jpeg'
     @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort.reverse
-    # if user_signed_in?
-    #   render :index
-    # end
   end
 
   

@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GOHAN TIME</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>GOHAN TIME</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= javascript_pack_tag 'application' %>
+</head>
 
-  <body>
-   <div class="wrapper">
-    <header class="header">
-    <%# 背景画像に載せる %>
-    <div class='title-contents'>
-      <%= image_tag "header.png", class:"header-pict"%>
-      <%# <div class="header__bar row"> %>
-        <%# <h1 class="grid-6"><a href="/">GOHAN TIME</a></h1> %>
-        <div class="top">
-          <% if user_signed_in? %>
-            <div class="user-name">
-              <span><%= current_user.nickname %>
-            <div class="login">
-              <%= link_to "マイページ", "/users/#{current_user.id}" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </div>
-          <% else %>
-            <div class="not-login">
-              <%= link_to "ログイン", new_user_session_path, class: "post" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            </div>
-          <% end %>
-        </div>
-      <%# </div> %>
-    </div>
-    <%## 背景画像に載せる %>
-   </header>
-    <%# <%= yield %>
-   <footer>
-      <p>Copyright GOHAN TIME 2020.</p>
-   </footer>
-  
-  </body>
+<body>
+  <%= yield %>
+</body>
+
 </html>

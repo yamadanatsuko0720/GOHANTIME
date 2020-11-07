@@ -1,16 +1,31 @@
-<div class="contents-row">
-  <ul class='item-lists'>
-      <% @pictures.each do |pic| %>
-        <li class='list'>
-          <div class="item-pic">
-            <%= image_tag pic , class: "item-img"%>
-          </div>
-          <div class="item-date">
-            <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br>
-            <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br>
-            <%# <%= time.hour,"時",time.min,"分",time.sec,"秒\n" > %>
-          </div>
-        </li>
-      <% end %>
-  </ul>
+<div class="wrapper">  
+  <header class="header">
+    <%# 背景画像に載せる %>
+    <div class='title-contents'>
+      <%#= image_tag "header.png", class:"header-pict" %>
+      <div class="login">
+        <%= link_to "マイページ", "/users/#{current_user.id}", class: "post" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
+      </div>
+      <%## 背景画像に載せる %>
+    </div>
+  </header>
+  <div class="contents-row">
+    <ul class='item-lists'>
+        <% @pictures.each do |pic| %>
+          <li class='list'>
+            <div class="item-pic">
+              <%= image_tag pic , class: "item-img"%>
+            </div>
+            <div class="item-date">
+              <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
+              <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br> 
+            </div>
+          </li>
+        <% end %>
+    </ul>
+  </div> 
+  <footer>
+  <p>Copyright GOHAN TIME 2020.</p>
+  </footer>
 </div> 
