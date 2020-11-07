@@ -10,9 +10,9 @@
     </div>
   </header>
   <div class="contents-row">
-    <ul class='item-lists'>
+    <%# <ul class='item-lists'> %>
         <% @pictures.each do |pic| %>
-          <li class='list'>
+          <div class='picture'>
             <div class="item-pic">
               <%= image_tag pic , class: "item-img"%>
             </div>
@@ -20,9 +20,9 @@
               <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
               <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br> 
             </div>
-          </li>
+          </div>
         <% end %>
-    </ul>
+    <%# </ul> %>
   </div> <br> <br> 
   <footer>
   <p>Copyright GOHAN TIME 2020.</p>

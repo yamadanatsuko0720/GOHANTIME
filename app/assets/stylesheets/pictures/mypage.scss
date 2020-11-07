@@ -53,18 +53,26 @@ footer{
 }
 
 .contents-row{
+  width: 100vw;
   background-color: #FFF;
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 10vh 0;
+  position: relative;
+}
+
+.picture{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .item-lists{
   width: 100vw;
   // display: flex;
   // flex-wrap: wrap;
-  // position: relative;
+  position: absolute;
   // justify-content: center;
   list-style: none;
 }
