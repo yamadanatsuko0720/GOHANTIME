@@ -2,9 +2,8 @@
   <header class="header">
     <%# 背景画像に載せる %>
     <div class='title-contents'>
-      <%#= image_tag "header.png", class:"header-pict" %>
-      <div class="login">
-        <%= link_to "マイページ", "/users/#{current_user.id}", class: "post" %>
+      <%= image_tag "header2.png", class:"header-pict" %>
+      <div class="top">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
       </div>
       <%## 背景画像に載せる %>
@@ -24,7 +23,7 @@
           </li>
         <% end %>
     </ul>
-  </div> 
+  </div> <br> <br> 
   <footer>
   <p>Copyright GOHAN TIME 2020.</p>
   </footer>
