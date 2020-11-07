@@ -56,17 +56,24 @@ footer{
   position: relative;
 }
 
+.time-contents{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .time-text{
   font-family: "游ゴシック体";
   color: #b28c98;
   font-size: 24px;
 }
 
-.time-text span{
+.time{
   font-family: "游ゴシック体";
   color: #b28c98;
   font-size: 40px;
   font-weight: bold;
+  display: flex;
 }
 
 .picture{

@@ -10,16 +10,32 @@
     </div>
   </header>
   <div class="contents-row">
-    <div class='time'>
-      <p class="time-text">最後のご飯から<span> ○時間○分 </span>経過</p>
+    <div class='time-contents'>
+      <% hour1 = 0 %>
+      <% @pictures.each do |pic| %>
+        <% now = Time.now %>
+        <% pichour = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br>  
+        <% hour = (((now - pichour) / 60 / 60)).floor %>
+        <% minuts = (((now - pichour) / 60 ) % 60).floor %>
+        <% hour1 = hour1 + 1%>
+        <% if hour1 == @pictures.length - 1%>
+          <div class='time-text'><%= "最後のご飯から　" %></div>
+          <div class='time'><%= "#{hour}時間#{minuts}分" %></div>
+          <div class='time-text'><%= "　経過" %></div>
+        <% end %>
+      <% end %>
     </div>
     <br><br> 
+    <% pic1 = 0 %>
     <% @pictures.each do |pic| %>
       <div class='picture'>
         <div class="item-pic">
           <%= image_tag pic , class: "item-img"%>
         </div>
         <div class="item-date">
+          <% if hour1 == @pictures.length - 1%>
+            <%= "NEW!" %>
+          <% end %>
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br> 
         </div>
@@ -30,3 +46,5 @@
   <p>Copyright GOHAN TIME 2020.</p>
   </footer>
 </div> 
+
+
