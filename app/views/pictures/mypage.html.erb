@@ -48,4 +48,17 @@
   </footer>
 </div> 
 
+<% lasttime = Time.new %>
+<% elapsedtime = Time.new%>
+<% @pictures.each_with_index do |pic, i| %>
+  <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br> 
+  <% if i == 0 %>
+    <% lasttime = time%>
+  <% else %>
+    <% elapsedtime = lasttime - time%>
+    <%= (elapsedtime / 60).floor %>
+    <% lasttime = time%>
+  <% end %>
+<% end %>
+
 
