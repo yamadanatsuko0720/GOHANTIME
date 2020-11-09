@@ -147,6 +147,8 @@ div.contents.row div.content_post span.name span {
   display: block;
 }
 
+
+
 div.contents.row .success {
   margin: 20px 0;
   padding: 30px;
@@ -160,12 +162,21 @@ div.contents.row .success h3 {
   margin: 10px auto;
 }
 
+.contents.row{
+  display: flex;
+  justify-content: center;
+  color: #737373;
+}
+
 .container {
   margin: 20px 0;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   background-color: white;
   box-sizing: border-box;
+  width: 800px;
+  
+
 }
 
 .container h3 {
@@ -184,4 +195,41 @@ fieldset {
   border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
+}
+
+.field{
+  font-size: 20px;
+}
+
+.actions{
+  color: #57C3E9;
+  font-size: 20px;
+}
+
+a {
+  background: transparent;
+}
+
+/*
+ * Address `outline` inconsistency between Chrome and other browsers. */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improve readability when focused and also mouse hovered in all browsers. */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+.signin-out{
+  width: 120px;
+  padding: 20px;
+  color: #fff;
+  background-color: #b28c98;
+  text-align: center;
+  font-family: "超極細ゴシック" ;
+  font-weight: bold;
+  border-radius: 4px;
 }
