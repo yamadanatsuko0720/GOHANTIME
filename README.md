@@ -6,7 +6,7 @@
 **【URL】**  
 
 **【テスト用アカウント】**  
-mail: aaa@aaa
+mail: aaa@aaa  
 password: test00
 
 **【利用方法】**  
