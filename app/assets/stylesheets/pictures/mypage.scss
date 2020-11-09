@@ -65,6 +65,7 @@ footer{
 
 .average{
   margin-top: 150px;
+  position: relative;
 
 }
 
@@ -73,6 +74,12 @@ footer{
   justify-content: space-around;
   align-items: center;
   margin-top: 0px;
+}
+
+.time2{
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -85,20 +92,30 @@ footer{
 .time{
   font-family: "游ゴシック体";
   color: #b28c98;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   display: flex;
+  background-color: #e0e1e4;
+  border-radius: 15px;
+  padding: 0px 15px;
 }
 
 .picture{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .item-pic{
   margin: 30px;
-  // position: relative;
+  padding: 50px 400px 50px 50px;
+  background-color: #e0e1e4;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
 }
 
 .item-date{
@@ -108,5 +125,7 @@ footer{
   font-family: "游ゴシック体";
   color: #b28c98;
   font-size: 30px;
+  position: absolute;
+  margin-left: 400px;
 }
 
