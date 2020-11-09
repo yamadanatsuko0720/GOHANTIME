@@ -15,7 +15,6 @@ class PicturesController < ApplicationController
     @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}
   end
 
-  
   private
 
   def move_to_index
