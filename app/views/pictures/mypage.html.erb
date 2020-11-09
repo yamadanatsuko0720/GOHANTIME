@@ -11,24 +11,44 @@
   </header>
   <div class="contents-row">
     <div class='time-contents'>
-      <% hour1 = 0 %>
-      <% @pictures.each do |pic| %>
-        <% now = Time.now %>
-        <% pichour = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br>  
-        <% hour = (((now - pichour) / 60 / 60)).floor %>
-        <% minuts = (((now - pichour) / 60 ) % 60).floor %>
-        <% hour1 = hour1 + 1%>
-        <% if hour1 == 1 %>
-          <div class='time-text'><%= "最後のご飯から　" %></div>
-          <div class='time'><%= "#{hour}時間#{minuts}分" %></div>
-          <div class='time-text'><%= "　経過" %></div>
+      <div class = "lasttime" >
+        <% hour1 = 0 %>
+        <% @pictures.each do |pic| %>
+          <% now = Time.now %>
+          <% pichour = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br>  
+          <% hour = (((now - pichour) / 60 / 60)).floor %>
+          <% minuts = (((now - pichour) / 60 ) % 60).floor %>
+          <% hour1 = hour1 + 1%>
+          <% if hour1 == 1 %>
+            <div class='time-text'><%= "最後のご飯から　" %></div>
+            <div class='time'><%= "#{hour}時間#{minuts}分" %></div>
+            <div class='time-text'><%= "　経過" %></div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <div class = "average" >
+        <% lasttime = Time.new %>
+        <% elapsedtime = Time.new%>
+        <% summinuts = 0 %>
+        <% @pictures.each_with_index do |pic, i| %>
+          <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %>
+            <% if i == 0 %>
+              <% lasttime = time%>
+            <% else %>
+              <% elapsedtime = lasttime -time %>
+              <% minuts = (elapsedtime / 60).floor %>
+              <% summinuts = summinuts + minuts %>
+              <% lasttime = time%>  
+            <% end %>
+        <% end %>
+        <% aveminuts = summinuts / (@pictures.length) %>
+        <% hour2 = ((aveminuts / 60)) %>
+        <% minuts2 = (aveminuts % 60).floor %>
+        <div class='time-text'><%= "これまでご飯タイムの平均間隔は#{hour2}時間#{minuts2}分です" %></div>
+      </div>
     </div>
     <br><br> 
     <% pic1 = 0 %>
-    <% lasttime = Time.new %>
-    <% elapsedtime = Time.new%>
     <% @pictures.each_with_index do |pic, i| %>
       <% pic1 = pic1 + 1 %>
       <div class='picture'>
@@ -36,24 +56,11 @@
           <%= image_tag pic , class: "item-img"%>
         </div>
         <div class="item-date">
-          <% if i == @pictures.length - 1%>
+          <% if i == 0 %>
             <%= "NEW!" %><br> 
           <% end %>
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br>
-          <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br> 
-          <% if i == 0 %>
-            <% lasttime = time%>
-          <% else %>
-            <% elapsedtime = time - lasttime %>
-            <% (elapsedtime / 60).floor %>
-            <% hour2 = (elapsedtime / 60 / 60).floor %>
-            <% minuts2 = ((elapsedtime / 60 ) % 60).floor %>
-            <div class="lasttimecontents">
-              <div class='time-text'><%= "前回のご飯から#{hour2}時間#{minuts2}分経過" %></div>
-            </div>
-            <% lasttime = time%>
-          <% end %>
         </div>
       </div>
     <% end %>
@@ -62,25 +69,4 @@
   <p>Copyright GOHAN TIME 2020.</p>
   </footer>
 </div> 
-
-<% lasttime = Time.new %>
-<% elapsedtime = Time.new%>
-
-  <% @pictures.each_with_index do |pic, i| %>
-    <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br> 
-    <% if i == 0 %>
-      <% lasttime = time%>
-    <% else %>
-      <% elapsedtime = lasttime - time%>
-      <% (elapsedtime / 60).floor %>
-      <% hour2 = (elapsedtime / 60 / 60).floor %>
-      <% minuts2 = ((elapsedtime / 60 ) % 60).floor %>
-      <div class="lasttimecontents">
-        <div class='time-text'><%= "前回のご飯から#{hour2}時間#{minuts2}分経過" %></div>
-      </div>
-      <% lasttime = time%>
-    <% end %>
-  <% end %>
-
-
 
