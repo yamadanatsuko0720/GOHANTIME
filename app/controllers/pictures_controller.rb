@@ -12,7 +12,7 @@ class PicturesController < ApplicationController
 
   def mypage
     require 'exifr/jpeg'
-    @pictures = Dir.glob("*.JPG", base: "app/assets/images/").reverse
+    @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}
   end
 
   
