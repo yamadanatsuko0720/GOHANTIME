@@ -18,7 +18,7 @@
         <% hour = (((now - pichour) / 60 / 60)).floor %>
         <% minuts = (((now - pichour) / 60 ) % 60).floor %>
         <% hour1 = hour1 + 1%>
-        <% if hour1 == @pictures.length - 1%>
+        <% if hour1 == 1 %>
           <div class='time-text'><%= "最後のご飯から　" %></div>
           <div class='time'><%= "#{hour}時間#{minuts}分" %></div>
           <div class='time-text'><%= "　経過" %></div>
@@ -27,6 +27,8 @@
     </div>
     <br><br> 
     <% pic1 = 0 %>
+    <% lasttime = Time.new %>
+    <% elapsedtime = Time.new%>
     <% @pictures.each_with_index do |pic, i| %>
       <% pic1 = pic1 + 1 %>
       <div class='picture'>
@@ -38,7 +40,20 @@
             <%= "NEW!" %><br> 
           <% end %>
           <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
-          <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br> 
+          <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br>
+          <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br> 
+          <% if i == 0 %>
+            <% lasttime = time%>
+          <% else %>
+            <% elapsedtime = lasttime - time%>
+            <% (elapsedtime / 60).floor %>
+            <% hour2 = (elapsedtime / 60 / 60).floor %>
+            <% minuts2 = ((elapsedtime / 60 ) % 60).floor %>
+            <div class="lasttimecontents">
+              <div class='time-text'><%= "前回のご飯から#{hour2}時間#{minuts2}分経過" %></div>
+            </div>
+            <% lasttime = time%>
+          <% end %>
         </div>
       </div>
     <% end %>
