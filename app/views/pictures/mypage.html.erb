@@ -41,14 +41,16 @@
               <% lasttime = time%>  
             <% end %>
         <% end %>
-        <% aveminuts = summinuts / (@pictures.length) %>
-        <% hour2 = ((aveminuts / 60)) %>
-        <% minuts2 = (aveminuts % 60).floor %>
-        <div class="time2">
-          <div class='time-text'><%= "これまでのご飯タイムの平均間隔は " %></div>
-          <div class='time'><%= "#{hour2}時間#{minuts2}分" %></div>
-          <div class='time-text'><%= " です" %></div>
-        </div>
+        <% unless @pictures.length == 0 %>
+          <% aveminuts = summinuts / (@pictures.length) %>
+          <% hour2 = ((aveminuts / 60)) %>
+          <% minuts2 = (aveminuts % 60).floor %>
+          <div class="time2">
+            <div class='time-text'><%= "これまでのご飯タイムの平均間隔は " %></div>
+            <div class='time'><%= "#{hour2}時間#{minuts2}分" %></div>
+            <div class='time-text'><%= " です" %></div>
+          </div>
+        <% end %>
       </div>
     </div>
     <br><br> 
