@@ -3,7 +3,8 @@ class PicturesController < ApplicationController
 
   def index
     require 'exifr/jpeg'
-    @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}.reverse
+    # @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}.reverse
+    @pictures = Dir.glob("*.JPG", base: "public/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}.reverse
     if user_signed_in?
       render :mypage
     end
@@ -11,7 +12,7 @@ class PicturesController < ApplicationController
 
   def mypage
     require 'exifr/jpeg'
-    @pictures = Dir.glob("*.JPG", base: "app/assets/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}.reverse
+    @pictures = Dir.glob("*.JPG", base: "public/images/").sort_by{|x| File.basename(x, File.extname(x)).to_i}.reverse
   end
 
   private
