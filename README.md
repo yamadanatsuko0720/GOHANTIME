@@ -4,6 +4,7 @@
 ペットの猫がご飯を食べると写真付きでLINEに通知が届き、web上のマイページでは過去の記録を確認することができます。
 
 **【URL】**  
+https://gohantime.herokuapp.com/
 
 **【テスト用アカウント】**  
 mail: aaa@aaa  
@@ -34,11 +35,11 @@ password: test00
 
 **【実装した機能についてのGIFと説明】**   
 ①猫がご飯を食べると設置したカメラが自動で撮影してLINEに通知をします。    
-https://gyazo.com/73167e420c7453ab6ab7797f7de4dfe7  
+[![Image from Gyazo](https://i.gyazo.com/73167e420c7453ab6ab7797f7de4dfe7.png)](https://gyazo.com/73167e420c7453ab6ab7797f7de4dfe7) 
 
 ②webのマイページでは過去の写真と時間の一覧を確認する事ができます。  
 　最後のご飯からの経過時間と過去のご飯時間の平均の間隔が表示されます。  
-https://gyazo.com/acc3abd5ebf1d88dd151158bd8346308
+[![Image from Gyazo](https://i.gyazo.com/acc3abd5ebf1d88dd151158bd8346308.png)](https://gyazo.com/acc3abd5ebf1d88dd151158bd8346308)
 
 
 **【追加したい機能】**  
@@ -46,7 +47,7 @@ https://gyazo.com/acc3abd5ebf1d88dd151158bd8346308
 ・食べたご飯の量を計測  
 
 **【全体構造図】**  
-https://gyazo.com/9223d02f31915e2aef6ae555b58f3bf7  
+[![Image from Gyazo](https://i.gyazo.com/9223d02f31915e2aef6ae555b58f3bf7.png)](https://gyazo.com/9223d02f31915e2aef6ae555b58f3bf7)  
 
 **【開発環境】**  
 RaspberryPi 4  
