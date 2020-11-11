@@ -265,14 +265,14 @@ a:hover {
     text-align: center;
     /* display: inline-block; */
     text-decoration: none;
-    font-family: "超極細ゴシック" ;
+    font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
     border-radius: 4px;
   }
 
   .top{
     position: absolute;
     margin-top: 8px;
-    margin-right: 8px;
+    margin-right: 20px;
   }
 
   .title{
