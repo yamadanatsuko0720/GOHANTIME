@@ -12,64 +12,47 @@
   <div class="contents-row">
     <div class='time-contents'>
       <div class = "lasttime" >
-        <% hour1 = 0 %>
-        <% @pictures.each do |pic| %>
           <% now = Time.now %>
-          <% pichour = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %><br>  
+          <% pichour = EXIFR::JPEG.new("app/assets/images/1.jpeg").date_time_original %><br>  
           <% hour = (((now - pichour) / 60 / 60)).floor %>
           <% minuts = (((now - pichour) / 60 ) % 60).floor %>
-          <% hour1 = hour1 + 1%>
-          <% if hour1 == 1 %>
             <div class='time-text'><%= "最後のご飯から " %></div>
             <div class='time'><%= "#{hour}時間#{minuts}分" %></div>
             <div class='time-text'><%= " 経過" %></div>
-          <% end %>
-        <% end %>
       </div>
       <div class = "average" >
-        <% lasttime = Time.new %>
-        <% elapsedtime = Time.new%>
-        <% summinuts = 0 %>
-        <% @pictures.each_with_index do |pic, i| %>
-          <% time = EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original %>
-            <% if i == 0 %>
-              <% lasttime = time%>
-            <% else %>
-              <% elapsedtime = lasttime -time %>
-              <% minuts = (elapsedtime / 60).floor %>
-              <% summinuts = summinuts + minuts %>
-              <% lasttime = time%>  
-            <% end %>
-        <% end %>
-        <% unless @pictures.length == 0 %>
-          <% aveminuts = summinuts / (@pictures.length) %>
-          <% hour2 = ((aveminuts / 60)) %>
-          <% minuts2 = (aveminuts % 60).floor %>
           <div class="time2">
             <div class='time-text'><%= "これまでのご飯タイムの平均間隔は " %></div>
-            <div class='time'><%= "#{hour2}時間#{minuts2}分" %></div>
+            <div class='time'><%= "7時間41分" %></div>
             <div class='time-text'><%= " です" %></div>
           </div>
-        <% end %>
       </div>
     </div>
     <br><br> 
-    <% pic1 = 0 %>
-      <% @pictures.each_with_index do |pic, i| %>
-        <% pic1 = pic1 + 1 %>
         <div class='picture'>
           <div class="item-pic">
-            <%= image_tag pic , class: "item-img"%>
+            <%= image_tag "1.jpeg" , class: "item-img"%>
             <div class="item-date">
-              <% if i == 0 %>
                 <%= "NEW!" %><br> 
-              <% end %>
-              <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%Y年%m月%d日") %><br> 
-              <%= EXIFR::JPEG.new("app/assets/images/#{pic}").date_time_original.strftime("%H:%M:%S") %><br>
+              <%= EXIFR::JPEG.new("app/assets/images/1.jpeg").date_time_original.strftime("%Y年%m月%d日") %><br> 
+              <%= EXIFR::JPEG.new("app/assets/images/1.jpeg").date_time_original.strftime("%H:%M:%S") %><br>
+            </div>
+          </div>
+          <div class="item-pic">
+            <%= image_tag "2.jpeg" , class: "item-img"%>
+            <div class="item-date">
+              <%= EXIFR::JPEG.new("app/assets/images/2.jpeg").date_time_original.strftime("%Y年%m月%d日") %><br> 
+              <%= EXIFR::JPEG.new("app/assets/images/2.jpeg").date_time_original.strftime("%H:%M:%S") %><br>
+            </div>
+          </div>
+          <div class="item-pic">
+            <%= image_tag "3.jpeg" , class: "item-img"%>
+            <div class="item-date">
+              <%= EXIFR::JPEG.new("app/assets/images/3.jpeg").date_time_original.strftime("%Y年%m月%d日") %><br> 
+              <%= EXIFR::JPEG.new("app/assets/images/3.jpeg").date_time_original.strftime("%H:%M:%S") %><br>
             </div>
           </div>
         </div>
-      <% end %>
   </div> <br> <br> 
   <footer>
   <p>Copyright GOHAN TIME 2020.</p>
